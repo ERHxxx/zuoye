@@ -1,0 +1,33 @@
+<svg width="100%" viewBox="0 0 680 576" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>主循环运行流程</title>
+<desc>main 函数从初始化开始，每帧依次计算时间差、处理按键、更新世界、双缓冲绘制并休眠的循环流程</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+<rect x="190" y="20" width="300" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="340" y="42" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="13" font-weight="500" fill="#444441">main 初始化：srand · setupConsole · resetGame</text>
+<path d="M340 64 L340 100" fill="none" stroke="#185FA5" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="190" y="100" width="300" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="340" y="118" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#0C447C">① 计算时间差 dt</text>
+<text x="340" y="139" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#185FA5">nowSec 差值 · 上限 0.1 秒</text>
+<path d="M340 156 L340 200" fill="none" stroke="#185FA5" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="190" y="200" width="300" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="340" y="218" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#0C447C">② 单次按键 pollTapKeys</text>
+<text x="340" y="239" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#185FA5">P 暂停 · R 重开 · ESC 退出</text>
+<path d="M340 256 L340 300" fill="none" stroke="#185FA5" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="190" y="300" width="300" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="340" y="318" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#0C447C">③ 输入 + 世界更新</text>
+<text x="340" y="339" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#185FA5">handleInput · update(dt)</text>
+<path d="M340 356 L340 400" fill="none" stroke="#185FA5" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="190" y="400" width="300" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="340" y="418" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#0C447C">④ 双缓冲绘制</text>
+<text x="340" y="439" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#185FA5">render → present 整屏输出</text>
+<path d="M340 456 L340 500" fill="none" stroke="#185FA5" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="190" y="500" width="300" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="340" y="518" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#0C447C">⑤ 控制帧率</text>
+<text x="340" y="539" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#185FA5">sleepMs(16) · 约 60 FPS</text>
+<path d="M190 528 L120 528 L120 128 L190 128" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<text x="113" y="324" text-anchor="end" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#0F6E56">下一帧</text>
+</svg>

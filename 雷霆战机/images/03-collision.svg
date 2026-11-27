@@ -1,0 +1,41 @@
+<svg width="100%" viewBox="0 0 680 424" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>两组碰撞因果链</title>
+<desc>左侧展示我方子弹命中敌机后的扣血、计分、升级流程，右侧展示敌方威胁碰到玩家后的无敌判断、掉命与游戏结束流程</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+<text x="180" y="35" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#27500A">击落敌机（我方子弹）</text>
+<text x="500" y="35" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#791F1F">玩家受伤（敌方威胁）</text>
+<rect x="40" y="60" width="280" height="56" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text x="180" y="78" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#27500A">hitBox 碰撞检测</text>
+<text x="180" y="99" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#3B6D11">子弹与敌机矩形相交</text>
+<path d="M180 116 L180 156" fill="none" stroke="#3B6D11" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="40" y="156" width="280" height="56" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text x="180" y="174" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#27500A">enemy.hp -= dmg</text>
+<text x="180" y="195" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#3B6D11">子弹销毁（火舌可穿透）</text>
+<path d="M180 212 L180 252" fill="none" stroke="#3B6D11" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="40" y="252" width="280" height="56" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text x="180" y="270" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#27500A">hp ≤ 0 → 击毁</text>
+<text x="180" y="291" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#3B6D11">小飞机+10 俯冲+20 轰炸+40</text>
+<path d="M180 308 L180 348" fill="none" stroke="#3B6D11" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="40" y="348" width="280" height="56" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text x="180" y="366" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#27500A">连锁反馈</text>
+<text x="180" y="387" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#3B6D11">爆炸 · 每20架升级 · 概率掉箱</text>
+<rect x="360" y="60" width="280" height="56" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+<text x="500" y="78" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#791F1F">hitBox 碰撞检测</text>
+<text x="500" y="99" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#A32D2D">敌机或敌弹碰到玩家</text>
+<path d="M500 116 L500 156" fill="none" stroke="#A32D2D" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="360" y="156" width="280" height="56" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+<text x="500" y="174" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#791F1F">无敌判断 inv &gt; 0</text>
+<text x="500" y="195" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#A32D2D">是则忽略（机体闪烁）</text>
+<path d="M500 212 L500 252" fill="none" stroke="#A32D2D" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="360" y="252" width="280" height="56" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+<text x="500" y="270" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#791F1F">lives-- · inv = 1.8s</text>
+<text x="500" y="291" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#A32D2D">清除身边敌弹防连死</text>
+<path d="M500 308 L500 348" fill="none" stroke="#A32D2D" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="360" y="348" width="280" height="56" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+<text x="500" y="366" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="14" font-weight="500" fill="#791F1F">lives = 0 → GameOver</text>
+<text x="500" y="387" text-anchor="middle" dominant-baseline="central" font-family="sans-serif" font-size="12" font-weight="400" fill="#A32D2D">按 R 重新开始</text>
+</svg>
