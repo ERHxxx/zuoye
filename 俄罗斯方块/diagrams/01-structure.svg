@@ -1,0 +1,70 @@
+<svg width="100%" viewBox="0 0 680 428" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>俄罗斯方块代码分层结构</title>
+<desc>从上到下分为主控层、绘制层、游戏逻辑层和数据层，箭头表示调用方向</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+<style>
+.l{font:500 13px "Microsoft YaHei",sans-serif;fill:#2C2C2A}
+.h{font:500 13px "Microsoft YaHei",sans-serif;fill:#0C447C}
+.s{font:400 12px "Microsoft YaHei",sans-serif;fill:#185FA5}
+</style>
+<rect x="0" y="0" width="680" height="428" fill="#FFFFFF"/>
+<rect x="40" y="40" width="600" height="60" rx="12" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text class="l" x="54" y="70" dominant-baseline="central">主控层</text>
+<rect x="150" y="52" width="470" height="36" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="385" y="70" text-anchor="middle" dominant-baseline="central">main() 游戏循环：读输入 → 计时下落 → 每帧重绘</text>
+<path d="M340 100 V120" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="40" y="120" width="600" height="72" rx="12" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text class="l" x="54" y="156" dominant-baseline="central">绘制层</text>
+<rect x="150" y="134" width="150" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="225" y="150" text-anchor="middle" dominant-baseline="central">drawFrame()</text>
+<text class="s" x="225" y="167" text-anchor="middle" dominant-baseline="central">边框面板只画一次</text>
+<rect x="310" y="134" width="150" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="385" y="150" text-anchor="middle" dominant-baseline="central">draw()</text>
+<text class="s" x="385" y="167" text-anchor="middle" dominant-baseline="central">场地·方块·分数</text>
+<rect x="470" y="134" width="150" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="545" y="150" text-anchor="middle" dominant-baseline="central">drawCellAt()</text>
+<text class="s" x="545" y="167" text-anchor="middle" dominant-baseline="central">背景色画实心块</text>
+<path d="M340 192 V212" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="40" y="212" width="600" height="112" rx="12" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text class="l" x="54" y="268" dominant-baseline="central">逻辑层</text>
+<rect x="150" y="228" width="110" height="42" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="205" y="242" text-anchor="middle" dominant-baseline="central">collide()</text>
+<text class="s" x="205" y="259" text-anchor="middle" dominant-baseline="central">碰撞检测</text>
+<rect x="275" y="228" width="110" height="42" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="330" y="242" text-anchor="middle" dominant-baseline="central">rotate()</text>
+<text class="s" x="330" y="259" text-anchor="middle" dominant-baseline="central">矩阵旋转</text>
+<rect x="400" y="228" width="110" height="42" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="455" y="242" text-anchor="middle" dominant-baseline="central">merge()</text>
+<text class="s" x="455" y="259" text-anchor="middle" dominant-baseline="central">写入场地</text>
+<rect x="525" y="228" width="110" height="42" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="580" y="242" text-anchor="middle" dominant-baseline="central">spawn()</text>
+<text class="s" x="580" y="259" text-anchor="middle" dominant-baseline="central">生成方块</text>
+<rect x="150" y="276" width="150" height="42" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="225" y="290" text-anchor="middle" dominant-baseline="central">drop()</text>
+<text class="s" x="225" y="307" text-anchor="middle" dominant-baseline="central">下落一格</text>
+<rect x="310" y="276" width="150" height="42" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="385" y="290" text-anchor="middle" dominant-baseline="central">clearLines()</text>
+<text class="s" x="385" y="307" text-anchor="middle" dominant-baseline="central">消行计分</text>
+<rect x="470" y="276" width="150" height="42" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="545" y="290" text-anchor="middle" dominant-baseline="central">resetGame()</text>
+<text class="s" x="545" y="307" text-anchor="middle" dominant-baseline="central">重置整局</text>
+<path d="M340 324 V344" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="40" y="344" width="600" height="64" rx="12" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text class="l" x="54" y="376" dominant-baseline="central">数据层</text>
+<rect x="150" y="356" width="112" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="206" y="372" text-anchor="middle" dominant-baseline="central">field[20][10]</text>
+<text class="s" x="206" y="389" text-anchor="middle" dominant-baseline="central">已落定的格子</text>
+<rect x="274" y="356" width="112" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="330" y="372" text-anchor="middle" dominant-baseline="central">cur / next</text>
+<text class="s" x="330" y="389" text-anchor="middle" dominant-baseline="central">当前与下一个</text>
+<rect x="398" y="356" width="112" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="454" y="372" text-anchor="middle" dominant-baseline="central">SHAPES/COLORS</text>
+<text class="s" x="454" y="389" text-anchor="middle" dominant-baseline="central">形状与颜色表</text>
+<rect x="522" y="356" width="112" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text class="h" x="578" y="372" text-anchor="middle" dominant-baseline="central">score/lines</text>
+<text class="s" x="578" y="389" text-anchor="middle" dominant-baseline="central">分数等级状态</text>
+</svg>
