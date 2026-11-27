@@ -6,19 +6,18 @@
 所有带伤害的东西**不分敌我**——自己的炮弹、激光、追踪弹、地雷照样能把自己送走。
 纯 C 编写，只依赖 Windows 自带的 `user32.dll` / `gdi32.dll` / `ws2_32.dll`（联网用），无第三方库。
 
-![预览](screenshot.png)
-
 ## 运行
 
 启动后先弹出**模式选择窗口**（本地双人 / 创建房间 / 加入房间 / 退出），选完才进入游戏。
 
-- **直接玩**：双击 `TankBattle.exe`
+- **编译**：双击 `build.bat`，或在 Visual Studio 开发者命令提示符中执行：
+  ```
+  cl /nologo /utf-8 /W3 /O2 /MD main.c /link /SUBSYSTEM:WINDOWS user32.lib gdi32.lib ws2_32.lib /OUT:TankBattle.exe
+  ```
+- **运行**：双击编译生成的 `TankBattle.exe`
 - **在 Visual Studio 里开发**：双击 `TankBattle.sln`，按 `F5`
-- **命令行编译**：双击 `build.bat`，或
-  ```
-  cl /utf-8 /O2 main.c user32.lib gdi32.lib ws2_32.lib
-  ```
-  联机功能用到 Winsock，编译时必须链接 `ws2_32.lib`（`build.bat` 和 VS 工程都已加好）。
+
+联机功能用到 Winsock，编译时必须链接 `ws2_32.lib`（`build.bat` 和 VS 工程都已加好）。
 
 > 工程使用 v145 工具集（VS 2026）。若是 VS 2019 / 2022，右键项目 → 属性 → 平台工具集，改成 v142 / v143 即可。
 

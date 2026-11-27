@@ -18,7 +18,7 @@
  *    - 先到 36 分立即获胜；时间到时分数高者获胜，同分平局
  *
  *  编译：Visual Studio 新建“空项目(C)”，添加本文件即可（字符集 Unicode）。
- *        命令行：cl /utf-8 /O2 main.c user32.lib gdi32.lib
+ *        命令行：cl /utf-8 /O2 main.c /link /SUBSYSTEM:WINDOWS user32.lib gdi32.lib ws2_32.lib /OUT:TankBattle.exe
  *
  *  ---------------------------------------------------------------------------
  *  【建议阅读顺序】整份代码是一个“每帧：先算、再画”的循环，可以按下面顺序看：

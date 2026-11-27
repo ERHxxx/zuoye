@@ -1,0 +1,14 @@
+# Visual Studio / MSVC 构建产物
+*.obj
+*.exe
+*.bmp
+*.pdb
+*.ilk
+*.exp
+*.lib
+
+# WorkBuddy 本地辅助目录与测试产物
+.workbuddy/
+
+# 系统文件
+Thumbs.db
